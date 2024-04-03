@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .card {
+      width: 200px;
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      position: absolute;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card" onclick="fetchJokeAndFlipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">Click to reveal joke</div>
+      <div class="card-back" id="joke"></div>
+    </div>
+  </div>
+
+  <script>
+    async function fetchJokeAndFlipCard(card) {
+      card.classList.toggle('flip');
+
+      if (card.classList.contains('flip')) {
+        // Fetch a joke from an API (replace with your API URL)
+        const response = await fetch('https://api.example.com/jokes/random');
+        const data = await response.json();
+        const jokeElement = document.getElementById('joke');
+        jokeElement.textContent = data.joke;
+      }
+    }
+  </script>
+</body>
+</html>

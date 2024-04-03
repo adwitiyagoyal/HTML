@@ -1,0 +1,42 @@
+body{
+    text-align: center;
+}
+
+div{
+    background: yellow;
+    width: 50px;
+    height:50px;
+    border: 20px;
+    border-color: rgb(183, 27, 27);
+    border-radius: 3px;
+    display: inline-block;
+}
+#container{
+    height: 200px;
+    width:800px;
+    border: 2px;
+    border-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+#box1{
+    background: aqua;
+}
+#box2{
+    background: firebrick;
+}
+#box3{
+    background: hotpink;
+}
+#box4{
+    background-color: blanchedalmond    ;
+}
+#box5{
+    background: burlywood;
+}
+
